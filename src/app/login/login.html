@@ -1,0 +1,47 @@
+<div class="container mt-5" style="max-width:400px;">
+
+  <div class="card p-4 shadow">
+
+    <h3 class="mb-3 text-center">🔐 Admin Login</h3>
+
+    <!-- Email -->
+    <input [(ngModel)]="email" 
+           type="email"
+           placeholder="Email" 
+           class="form-control mb-2">
+
+    <!-- Password -->
+    <div class="input-group mb-2">
+      <input [(ngModel)]="password" 
+             [type]="showPassword ? 'text' : 'password'"
+             placeholder="Password" 
+             class="form-control">
+
+      <button class="btn btn-outline-secondary"
+              type="button"
+              (click)="showPassword = !showPassword">
+        👁️
+      </button>
+    </div>
+
+    <!-- Login Button -->
+    <button class="btn btn-primary w-100 mb-2"
+            (click)="login()"
+            [disabled]="loading">
+      {{ loading ? 'Logging in...' : 'Login' }}
+    </button>
+
+    <!-- Error -->
+    <p class="text-danger text-center small">{{error}}</p>
+
+    <!-- Signup -->
+    <p class="text-center mt-3">
+      Don’t have an account?
+      <a routerLink="/signup" class="btn btn-outline-light w-100 mt-2">
+  Create Account
+</a>
+    </p>
+
+  </div>
+
+</div>

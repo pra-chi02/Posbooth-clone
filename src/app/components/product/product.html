@@ -1,0 +1,73 @@
+<section class="product-bg">
+
+  
+  <div class="overlay"></div>
+
+  <div class="container position-relative">
+
+
+    <div class="text-center text-white mb-5">
+      <h2 class="fw-bold display-5">Our Products</h2>
+      <p class="text-light">Explore smart POS devices & tools</p>
+    </div>
+
+    
+    <div class="row g-4">
+
+      <div class="col-lg-3 col-md-4 col-sm-6"
+           *ngFor="let p of products">
+
+        <div class="product-card h-100">
+
+          
+          <div class="img-box">
+            <img [src]="p.image || 'https://via.placeholder.com/300'"
+                 (error)="p.image='https://via.placeholder.com/300'"
+                 alt="{{p.name}}"
+                 class="product-img">
+          </div>
+
+        
+          <div class="content">
+
+            <h5 class="fw-semibold">{{p.name}}</h5>
+
+            <p class="desc">
+              {{p.desc || 'Best quality product for your business'}}
+            </p>
+
+            
+            <h6 class="price">₹{{p.price}}</h6>
+
+            
+            <div class="btns">
+
+              <button class="btn btn-warning"
+                      (click)="addToCart(p)">
+                Add 🛒
+              </button>
+
+              <button class="btn btn-outline-light"
+                      [routerLink]="['/product', p.id]">
+                View
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ❌ EMPTY STATE -->
+    <div *ngIf="products.length === 0"
+         class="text-center text-white mt-5">
+      <h3>No Products Found 😢</h3>
+    </div>
+
+  </div>
+
+</section>

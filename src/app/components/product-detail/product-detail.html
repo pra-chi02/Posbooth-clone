@@ -1,0 +1,64 @@
+<section class="product-detail" *ngIf="product">
+
+  <div class="container">
+
+    <div class="row align-items-center">
+
+      <!-- 🖼️ IMAGE -->
+      <div class="col-md-6 mb-4">
+
+        <div class="img-box">
+          <img [src]="product.image || 'https://via.placeholder.com/400'"
+               (error)="product.image='https://via.placeholder.com/400'"
+               class="img-fluid rounded shadow product-img">
+        </div>
+
+      </div>
+
+      <!-- 📄 DETAILS -->
+      <div class="col-md-6 text-white">
+
+        <h2 class="fw-bold mb-3">{{product.name}}</h2>
+
+        <p class="text-light mb-3">
+          {{product.desc || 'Premium quality POS product for your business needs'}}
+        </p>
+
+        <!-- ⭐ RATING (STATIC UI) -->
+        <div class="mb-3 text-warning">
+          ⭐⭐⭐⭐☆ <span class="text-light">(4.5)</span>
+        </div>
+
+        <!-- 💰 PRICE -->
+        <h3 class="text-warning fw-bold mb-4">
+          ₹{{product.price}}
+        </h3>
+
+        <!-- 🔘 BUTTONS -->
+        <div class="d-flex gap-3">
+
+          <button class="btn btn-warning px-4"
+                  (click)="addToCart(product)">
+            Add to Cart 🛒
+          </button>
+
+          <button class="btn btn-outline-light px-4"
+                  routerLink="/products">
+            Back
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ❌ NOT FOUND -->
+<div *ngIf="!product" class="text-center mt-5 text-white">
+  <h3>Product not found 😢</h3>
+  <a routerLink="/products" class="btn btn-warning mt-3">Go Back</a>
+</div>

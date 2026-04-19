@@ -1,0 +1,109 @@
+<div class="container my-5">
+
+  <h2 class="mb-4 text-center">🛒 My Cart</h2>
+
+  <div class="row">
+
+    <!-- 🛍️ LEFT: CART ITEMS -->
+    <div class="col-lg-8">
+
+      <div *ngIf="cartItems.length > 0; else emptyCart">
+
+        <div class="card mb-3 shadow-sm p-3"
+             *ngFor="let item of cartItems">
+
+          <div class="row align-items-center">
+
+            <!-- Image -->
+            <div class="col-md-3">
+              <img [src]="item.image" class="img-fluid rounded">
+            </div>
+
+            <!-- Details -->
+            <div class="col-md-5">
+              <h5>{{item.name}}</h5>
+              <p class="text-muted">{{item.desc}}</p>
+            </div>
+
+            <!-- Price -->
+            <div class="col-md-2 text-center">
+              <h6 class="text-success fw-bold">
+                ₹{{item.price}}
+              </h6>
+            </div>
+
+            <!-- Qty -->
+            <div class="col-md-2 text-center">
+              <button class="btn btn-outline-dark btn-sm me-2"
+                      (click)="decrease(item)">-</button>
+
+              <span>{{item.qty}}</span>
+
+              <button class="btn btn-outline-dark btn-sm ms-2"
+                      (click)="increase(item)">+</button>
+            </div>
+
+            <!-- Remove -->
+            <div class="col-12 text-end mt-2">
+              <button class="btn btn-danger btn-sm"
+                      (click)="remove(item.id)">
+                Remove
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Empty -->
+      <ng-template #emptyCart>
+        <div class="text-center mt-5">
+          <h3>Your Cart is Empty 😢</h3>
+          <a routerLink="/products" class="btn btn-primary mt-3">
+            Shop Now
+          </a>
+        </div>
+      </ng-template>
+
+    </div>
+
+    <!-- 💳 RIGHT: STICKY CHECKOUT -->
+    <div class="col-lg-4" *ngIf="cartItems.length > 0">
+
+      <div class="checkout-box">
+
+        <h4 class="mb-3">Order Summary</h4>
+
+        <div class="d-flex justify-content-between mb-2">
+          <span>Items</span>
+          <span>{{cartItems.length}}</span>
+        </div>
+
+        <div class="d-flex justify-content-between mb-2">
+          <span>Subtotal</span>
+          <span>₹{{getTotal()}}</span>
+        </div>
+
+        <div class="d-flex justify-content-between mb-2">
+          <span>Delivery</span>
+          <span class="text-success">Free</span>
+        </div>
+
+        <hr>
+
+        <div class="d-flex justify-content-between fw-bold mb-3">
+          <span>Total</span>
+          <span>₹{{getTotal()}}</span>
+        </div>
+
+        <button class="btn btn-success w-100">
+          Proceed to Checkout
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

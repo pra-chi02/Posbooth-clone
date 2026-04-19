@@ -1,0 +1,139 @@
+<div class="container mt-5">
+  <h2 class="mb-4">📊 Admin Dashboard</h2>
+
+  <!-- 🔍 SEARCH -->
+  <input 
+    [(ngModel)]="searchText"
+    (input)="search()"
+    placeholder="🔍 Search products..."
+    class="form-control mb-3"
+  />
+
+  <!-- ➕ ADD PRODUCT -->
+  <div class="card p-3 mb-4 shadow-sm">
+    <h5 class="mb-3">➕ Add Product</h5>
+
+    <!-- NAME -->
+    <input [(ngModel)]="newProduct.name" 
+           placeholder="Product Name" 
+           class="form-control mb-2">
+
+    <!-- PRICE -->
+    <input [(ngModel)]="newProduct.price" 
+           placeholder="Price (₹)" 
+           class="form-control mb-2">
+
+    <!-- IMAGE URL -->
+    <input [(ngModel)]="newProduct.image" 
+           (input)="previewImg = newProduct.image"
+           placeholder="Image URL" 
+           class="form-control mb-2">
+
+    <!-- DESCRIPTION -->
+    <input [(ngModel)]="newProduct.desc" 
+           placeholder="Description" 
+           class="form-control mb-2">
+
+    <!-- 🖼️ IMAGE PREVIEW -->
+    <div *ngIf="previewImg" class="text-center">
+      <img [src]="previewImg" class="preview-img">
+    </div>
+
+    <!-- BUTTON -->
+    <button class="btn btn-success w-100 mt-2" 
+            (click)="addProduct()">
+      Add Product
+    </button>
+  </div>
+
+  <!-- 📦 PRODUCT TABLE -->
+  <div class="card shadow p-4">
+
+    <table class="table table-hover align-middle text-center">
+
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Image</th>
+          <th>Product</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let p of filteredProducts">
+
+          <!-- ID -->
+          <td>#{{p.id}}</td>
+
+          <!-- IMAGE -->
+          <td>
+            <img [src]="p.image" 
+                 class="product-img">
+          </td>
+
+          <!-- NAME -->
+          <td *ngIf="editId !== p.id">{{p.name}}</td>
+          <td *ngIf="editId === p.id">
+            <input [(ngModel)]="editProduct.name" 
+                   class="form-control form-control-sm">
+          </td>
+
+          <!-- DESCRIPTION -->
+          <td *ngIf="editId !== p.id">{{p.desc}}</td>
+          <td *ngIf="editId === p.id">
+            <input [(ngModel)]="editProduct.desc" 
+                   class="form-control form-control-sm">
+          </td>
+
+          <!-- PRICE -->
+          <td *ngIf="editId !== p.id" class="fw-bold text-success">
+            ₹{{p.price}}
+          </td>
+          <td *ngIf="editId === p.id">
+            <input [(ngModel)]="editProduct.price" 
+                   class="form-control form-control-sm">
+          </td>
+
+          <!-- ACTIONS -->
+          <td>
+
+            <!-- NORMAL MODE -->
+            <div *ngIf="editId !== p.id">
+              <button class="btn btn-outline-warning btn-sm me-2"
+                      (click)="startEdit(p)">
+                ✏️
+              </button>
+
+              <button class="btn btn-outline-danger btn-sm"
+                      (click)="delete(p.id)">
+                🗑️
+              </button>
+            </div>
+
+            <!-- EDIT MODE -->
+            <div *ngIf="editId === p.id">
+              <button class="btn btn-success btn-sm me-2"
+                      (click)="save()">
+                ✔️
+              </button>
+
+              <button class="btn btn-secondary btn-sm"
+                      (click)="cancel()">
+                ✖️
+              </button>
+            </div>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+</div>

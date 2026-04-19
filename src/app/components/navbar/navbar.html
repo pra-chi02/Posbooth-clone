@@ -1,0 +1,120 @@
+<nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+
+  <div class="container">
+
+    <!-- LOGO -->
+    <a class="navbar-brand fw-bold text-white" routerLink="/home">
+      POS<span class="text-warning">Booth</span>
+    </a>
+
+    <!-- TOGGLE -->
+    <button class="navbar-toggler text-white"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#nav">
+      ☰
+    </button>
+
+    <!-- MENU -->
+    <div class="collapse navbar-collapse justify-content-end" id="nav">
+
+      <ul class="navbar-nav align-items-center">
+
+        <!-- HOME -->
+        <li class="nav-item">
+          <a class="nav-link"
+             routerLink="/home"
+             routerLinkActive="active-link"
+             [routerLinkActiveOptions]="{ exact: true }">
+            Home
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"
+             routerLink="/about"
+             routerLinkActive="active-link">
+            About
+          </a>
+        </li>
+        <!-- PRODUCTS -->
+        <li class="nav-item">
+          <a class="nav-link"
+             routerLink="/products"
+             routerLinkActive="active-link">
+            Products
+          </a>
+        </li>
+
+        <!-- CART -->
+        <li class="nav-item">
+          <a class="nav-link"
+             routerLink="/cart"
+             routerLinkActive="active-link">
+            Cart 🛒 ({{cartCount}})
+          </a>
+        </li>
+        
+          <!-- CONTACT ✅ -->
+        <li class="nav-item">
+          <a class="nav-link"
+             routerLink="/contact"
+             routerLinkActive="active-link">
+            Contact
+          </a>
+        </li>
+
+         <!-- ✅ ADMIN (VISIBLE ONLY WHEN LOGGED IN) -->
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link text-warning fw-bold"
+             routerLink="/admin"
+             routerLinkActive="active-link">
+            Admin ⚙️
+          </a>
+        </li>
+
+        <!-- USER -->
+        <li class="nav-item dropdown ms-3">
+
+          <a class="nav-link dropdown-toggle"
+             role="button"
+             data-bs-toggle="dropdown">
+            👤 {{userName || 'User'}}
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end">
+
+            <li>
+              <a class="dropdown-item" routerLink="/profile">Profile</a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" routerLink="/admin">Dashboard</a>
+            </li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            <li>
+              <button class="dropdown-item text-danger"
+                      (click)="logout()">
+                Logout
+              </button>
+            </li>
+            <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="btn btn-warning ms-3" routerLink="/login">
+            Login
+          </a>
+        </li>
+
+
+          </ul>
+
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</nav>

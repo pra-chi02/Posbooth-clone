@@ -1,0 +1,67 @@
+<section class="contact-section">
+
+  <div class="container">
+
+    <div class="row align-items-center">
+
+      <!-- LEFT INFO -->
+      <div class="col-md-5 contact-info">
+        <h2>Get in Touch 📩</h2>
+        <p>
+          Have questions? We'd love to hear from you.
+          Fill out the form and our team will get back to you.
+        </p>
+
+        <div class="info-box">
+          <p>📧 support@posbooth.com</p>
+          <p>📞 +91 9876543210</p>
+          <p>📍 India</p>
+        </div>
+      </div>
+
+      <!-- RIGHT FORM -->
+      <div class="col-md-7">
+        <div class="contact-card">
+
+          <!-- Name -->
+          <input [(ngModel)]="name"
+                 class="form-control mb-3"
+                 placeholder="Your Name">
+
+          <!-- Email -->
+          <input [(ngModel)]="email"
+                 type="email"
+                 class="form-control mb-3"
+                 placeholder="Your Email">
+
+          <!-- Message -->
+          <textarea [(ngModel)]="message"
+                    rows="4"
+                    class="form-control mb-3"
+                    placeholder="Your Message"></textarea>
+
+          <!-- Button -->
+          <button class="btn btn-warning w-100"
+                  (click)="sendMessage()"
+                  [disabled]="loading">
+            {{ loading ? 'Sending...' : 'Send Message 🚀' }}
+          </button>
+
+          <!-- SUCCESS -->
+          <p class="text-success text-center mt-2" *ngIf="success">
+            {{success}}
+          </p>
+
+          <!-- ERROR -->
+          <p class="text-danger text-center mt-2" *ngIf="error">
+            {{error}}
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

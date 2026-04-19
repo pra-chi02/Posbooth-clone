@@ -1,0 +1,144 @@
+/* PAGE BACKGROUND */
+.container {
+  margin-top: 80px;
+}
+
+/* 🔍 SEARCH BAR */
+input.form-control {
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  transition: 0.3s;
+
+  &:focus {
+    border-color: #ffc107;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.4);
+  }
+}
+
+/* ➕ ADD PRODUCT CARD */
+.card {
+  border: none;
+  border-radius: 15px;
+  background: #ffffff;
+  transition: 0.3s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* 🖼️ IMAGE PREVIEW */
+.preview-img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* 📦 TABLE */
+.table {
+  border-radius: 12px;
+  overflow: hidden;
+
+  th {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  td {
+    vertical-align: middle;
+  }
+}
+
+/* 🖼️ PRODUCT IMAGE */
+.product-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: 0.3s;
+  border: 1px solid #eee;
+
+  &:hover {
+    transform: scale(1.15);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+}
+
+/* ✏️ ACTION BUTTONS */
+button {
+  border-radius: 8px;
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* SUCCESS BUTTON */
+.btn-success {
+  background: linear-gradient(45deg, #28a745, #20c997);
+  border: none;
+
+  &:hover {
+    background: linear-gradient(45deg, #218838, #17a2b8);
+  }
+}
+
+/* WARNING BUTTON */
+.btn-outline-warning {
+  border-radius: 6px;
+
+  &:hover {
+    background: #ffc107;
+    color: #000;
+  }
+}
+
+/* DANGER BUTTON */
+.btn-outline-danger {
+  border-radius: 6px;
+
+  &:hover {
+    background: #dc3545;
+    color: #fff;
+  }
+}
+
+/* EDIT MODE INPUT */
+input.form-control-sm {
+  border-radius: 6px;
+  padding: 4px;
+}
+
+/* TABLE ROW HOVER */
+.table-hover tbody tr:hover {
+  background: #f9f9f9;
+  transform: scale(1.01);
+  transition: 0.2s;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .table {
+    font-size: 12px;
+  }
+
+  .product-img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .preview-img {
+    width: 80px;
+    height: 80px;
+  }
+}

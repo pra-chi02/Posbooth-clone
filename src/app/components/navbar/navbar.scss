@@ -1,0 +1,120 @@
+/* NAVBAR BASE */
+.custom-navbar {
+  background: rgba(15, 23, 42, 0.9); // dark glass
+  backdrop-filter: blur(10px);
+  padding: 12px 0;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+/* LOGO */
+.navbar-brand {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+
+  span {
+    font-weight: 700;
+  }
+}
+
+/* NAV LINKS */
+.nav-link {
+  color: #e2e8f0 !important;
+  margin: 0 10px;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s;
+
+  &:hover {
+    color: #facc15 !important;
+  }
+
+  /* underline animation */
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #facc15;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+/* ACTIVE LINK */
+.active-link {
+  color: #facc15 !important;
+
+  &::after {
+    width: 100%;
+  }
+}
+
+/* CART COUNT STYLE */
+.nav-link span {
+  font-weight: 600;
+}
+
+/* DROPDOWN */
+.dropdown-menu {
+  border-radius: 10px;
+  border: none;
+  background: #1e293b;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.dropdown-item {
+  color: #e2e8f0;
+  transition: 0.3s;
+
+  &:hover {
+    background: #334155;
+    color: #facc15;
+  }
+}
+
+/* LOGIN BUTTON */
+.btn-warning {
+  font-weight: 600;
+  border-radius: 8px;
+  transition: 0.3s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(250, 204, 21, 0.4);
+  }
+}
+
+/* TOGGLER */
+.navbar-toggler {
+  border: none;
+  font-size: 1.5rem;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 991px) {
+
+  .navbar-collapse {
+    background: #0f172a;
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .nav-link {
+    margin: 10px 0;
+  }
+
+  .dropdown-menu {
+    background: #020617;
+  }
+}

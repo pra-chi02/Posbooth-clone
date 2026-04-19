@@ -1,0 +1,23 @@
+<nav class="navbar">
+
+  <!-- LOGO -->
+  <div class="logo">
+    POS<span>Booth</span>
+  </div>
+
+  <!-- LINKS -->
+  <div class="links" [class.active]="menuOpen">
+
+    <a href="#products">Products</a>
+    <a href="#features">Features</a>
+
+    <a class="btn-primary">Get Started</a>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="menu" (click)="menuOpen = !menuOpen">
+    ☰
+  </div>
+
+</nav>

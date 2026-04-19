@@ -1,0 +1,148 @@
+/* ================= GLOBAL ================= */
+section {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ================= ABOUT COMPANY ================= */
+.about-company {
+  background: #000;
+  color: #fff;
+  padding: 100px 0;
+  position: relative;
+}
+
+/* 🔥 ORANGE GLOW (LEFT SIDE) */
+.about-company::before {
+  content: "";
+  position: absolute;
+  left: -120px;
+  bottom: -120px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 120, 0, 0.8), transparent);
+  filter: blur(120px);
+  z-index: 0;
+}
+
+/* IMAGE */
+.about-img {
+  width: 100%;
+  max-width: 350px;
+  position: relative;
+  z-index: 1;
+}
+
+/* TITLES */
+.sub-title {
+  letter-spacing: 3px;
+  color: #aaa;
+  font-size: 14px;
+}
+
+.main-title {
+  font-size: 52px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+/* DECOR LINE */
+.decor-line {
+  width: 140px;
+  height: 2px;
+  background: linear-gradient(to right, #fff, transparent);
+  margin: 15px 0 25px;
+}
+
+/* TEXT */
+.about-company p {
+  color: #cfcfcf;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* ================= CEO SECTION ================= */
+.ceo-section {
+  background: linear-gradient(to right, #000 60%, #ff6a00);
+  color: #fff;
+  padding: 100px 0;
+  position: relative;
+}
+
+/* TITLE */
+.ceo-sub {
+  letter-spacing: 3px;
+  color: #aaa;
+  font-size: 14px;
+}
+
+.ceo-title {
+  font-size: 52px;
+  font-weight: 800;
+}
+
+/* CEO IMAGE */
+.ceo-img {
+  width: 220px;
+  border-radius: 15px;
+  border: 3px solid #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* TEXT */
+.ceo-section p {
+  color: #ddd;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* NAME */
+.ceo-section h4 {
+  font-weight: 700;
+}
+
+.ceo-section small {
+  color: #ccc;
+}
+
+/* ================= HOVER EFFECT ================= */
+.about-img:hover,
+.ceo-img:hover {
+  transform: scale(1.05);
+  transition: 0.4s ease;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+
+  .main-title,
+  .ceo-title {
+    font-size: 36px;
+  }
+
+  .about-company,
+  .ceo-section {
+    text-align: center;
+  }
+
+  .decor-line {
+    margin: 15px auto;
+  }
+
+  .ceo-img {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .main-title,
+  .ceo-title {
+    font-size: 28px;
+  }
+
+  .about-company p,
+  .ceo-section p {
+    font-size: 14px;
+  }
+}
